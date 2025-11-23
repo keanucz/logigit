@@ -1,7 +1,7 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
     <id>com.github.keanucz.logigit</id>
-    <name>logigit</name>
+    <name>LogiGit</name>
     <vendor>keanucz</vendor>
 
     <depends>com.intellij.modules.platform</depends>
@@ -9,7 +9,9 @@
     <resource-bundle>messages.MyBundle</resource-bundle>
 
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.keanucz.logigit.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
-        <postStartupActivity implementation="com.github.keanucz.logigit.startup.MyProjectActivity" />
+        <applicationService serviceInterface="com.github.keanucz.logigit.ipc.LogiGitTelemetry" serviceImplementation="com.github.keanucz.logigit.ipc.LogiGitTelemetry"/>
+        <applicationService serviceInterface="com.github.keanucz.logigit.ipc.LogiGitIpcService" serviceImplementation="com.github.keanucz.logigit.ipc.LogiGitIpcService"/>
+        <applicationService serviceInterface="com.github.keanucz.logigit.git.LogiGitCommandExecutor" serviceImplementation="com.github.keanucz.logigit.git.LogiGitCommandExecutor"/>
+        <applicationService serviceImplementation="com.github.keanucz.logigit.ipc.LogiGitIpcApp"/>
     </extensions>
 </idea-plugin>

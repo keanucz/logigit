@@ -1,0 +1,112 @@
+# ==================================================================================================
+# GENERAL SETTINGS
+# ==================================================================================================
+
+# Package type. Must be plugin4 for plugins.
+type: plugin4
+
+# Name that identifies the plugin.
+name: LogiGit
+
+# Plugin name that is shown to the user.
+displayName: LogiGit
+
+# Short description of the plugin.
+description: Logitech MX + IntelliJ automation for guarded Git workflows.
+
+# Name of the plugin library file.
+pluginFileName: LogiGitPlugin.dll
+
+# Plugin version.
+version: 1.0.0
+
+# Author of the plugin. The author can be a company or an individual developer.
+author: LogiGit Contributors
+
+# Copyright information.
+copyright: Copyright © 2025 LogiGit Contributors. All rights reserved.
+
+keywords:
+    - git
+    - automation
+    - logitech
+    - ide
+
+categories:
+    - Developer Tools
+
+# ==================================================================================================
+# PLUGIN PROPERTIES
+# ==================================================================================================
+
+pluginFolderWin: bin
+pluginFolderMac: bin
+
+supportedDevices:
+    - LoupedeckCtFamily
+    - LoupedeckExtendedFamily
+
+minimumLoupedeckVersion: 6.0
+
+pluginCapabilities:
+    - HasApplication
+
+logiGitActions:
+    buttons:
+        - id: git.stash
+          class: Loupedeck.LogiGitPlugin.GitStashCommand
+          displayName: "Git Stash"
+          icon: save.png
+        - id: git.stash.pop
+          class: Loupedeck.LogiGitPlugin.GitStashPopCommand
+          displayName: "Stash Pop"
+          icon: undo.png
+        - id: git.reset.head
+          class: Loupedeck.LogiGitPlugin.GitResetHeadCommand
+          displayName: "Reset HEAD~1"
+          icon: highlightOff.png
+        - id: git.push
+          class: Loupedeck.LogiGitPlugin.GitPushCommand
+          displayName: "Git Push"
+          icon: redo.png
+        - id: git.pull
+          class: Loupedeck.LogiGitPlugin.GitPullCommand
+          displayName: "Git Pull"
+          icon: contrastOn.png
+        - id: git.status
+          class: Loupedeck.LogiGitPlugin.GitStatusCommand
+          displayName: "Git Status"
+          icon: temperatureOn.png
+        - id: git.checkout
+          class: Loupedeck.LogiGitPlugin.GitCheckoutCommand
+          displayName: "Checkout Branch"
+          icon: tintOn.png
+        - id: git.log
+          class: Loupedeck.LogiGitPlugin.GitLogCommand
+          displayName: "Git Log"
+          icon: saturationOn.png
+    adjustments:
+        - id: dial.scroll
+          class: Loupedeck.LogiGitPlugin.EditorScrollAdjustment
+          displayName: "IDE Scroll Dial"
+    gestures:
+        - id: ring.up
+          class: Loupedeck.LogiGitPlugin.MxMasterGestureCommand
+          description: "MX Actions Ring up → git pull"
+        - id: ring.down
+          class: Loupedeck.LogiGitPlugin.MxMasterGestureCommand
+          description: "MX Actions Ring down → git push"
+        - id: ring.left
+          class: Loupedeck.LogiGitPlugin.MxMasterGestureCommand
+          description: "MX Actions Ring left → git status"
+        - id: ring.right
+          class: Loupedeck.LogiGitPlugin.MxMasterGestureCommand
+          description: "MX Actions Ring right → git log"
+
+# ==================================================================================================
+# LOUPEDECK MARKETPLACE SETTINGS
+# ==================================================================================================
+license: MIT
+licenseUrl: https://opensource.org/licenses/MIT
+supportPageUrl: https://github.com/keanucz/logigit/issues
+homePageUrl: https://github.com/keanucz/logigit
